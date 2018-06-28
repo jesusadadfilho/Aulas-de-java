@@ -1,12 +1,16 @@
 public class Caixa {
     public static void main(String[] args) {
-        Conta conta1 = new Conta("igor");
-        conta1.depositar(5000);
+        Conta conta1 = new Conta();
+        Conta conta2 = new Conta("alysson");
+        ContaPoupança conta3 = new ContaPoupança("david");
         System.out.println(conta1.getSaldo());
-        if(conta1.sacar(1000)){
-            System.out.println(conta1.getSaldo());
-        }else{
-            System.out.println("Saldo insuficiente");
-        }
+        conta1.depositar(5000);
+        conta2.depositar(100);
+        conta3.depositar(200);
+        System.out.println(conta1.getSaldo());
+        System.out.println(conta2.getSaldo());
+        conta1.trasferir(conta3,2450);
+        System.out.println(conta1.getSaldo() + "-" + conta1.getNome());
+        System.out.println(conta3.getSaldo() + "-" + conta3.getNome());
     }
 }

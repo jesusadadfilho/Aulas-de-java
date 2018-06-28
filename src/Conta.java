@@ -8,6 +8,10 @@ public class Conta {
         this.saldo = 0;
     }
 
+    public Conta(){
+        this.saldo = 100;
+    }
+
     public double getSaldo() {
         return saldo;
     }
@@ -36,6 +40,17 @@ public class Conta {
         }
         this.saldo -= valor;
         return true;
+    }
+
+    public boolean trasferir(Conta conta, double valor){
+        if(this.saldo < valor){
+            return false;
+        }else{
+            this.saldo -= valor;
+            conta.depositar(valor);
+            return true;
+        }
+
     }
 
 }
